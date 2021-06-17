@@ -29,7 +29,7 @@ export const InputContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid ${theme.lightGray};
+    border-bottom: 1px solid ${theme.colors.lightGray};
   `}
 `;
 

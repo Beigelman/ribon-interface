@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Drizzle, IDrizzleOptions } from "@drizzle/store";
 import { DrizzleContext } from "@drizzle/react-plugin";
 
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
