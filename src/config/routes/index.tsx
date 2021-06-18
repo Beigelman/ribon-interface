@@ -5,6 +5,7 @@ import PromoterPage from "../../domains/promoter";
 import UserWelcomePage from "../../domains/user/WelcomePage";
 import UserCausesPage from "../../domains/user/CausesPage";
 import UserWillDonatePage from "../../domains/user/WillDonatePage";
+import UserDonationConfirmPage from "../../domains/user/DonationConfirmPage";
 
 function Routes(): JSX.Element {
   return (
@@ -24,6 +25,10 @@ function Routes(): JSX.Element {
 
         <Route path="/user/will-donate/:id" exact>
           <UserWillDonatePage />
+        </Route>
+
+        <Route path="/user/donation-confirm/:id" exact>
+          <UserDonationConfirmPage />
         </Route>
 
         <Redirect to="/" />

@@ -26,30 +26,19 @@ function WillDonateContent({ donationPackage }: Props): JSX.Element {
     history.goBack();
   }
 
-  function navigateToEmailConfirmPage() {
-    history.push({
-      pathname: `/integrations/email-confirm/${donationPackage.id}`,
-      search: history.location.search,
-    });
-  }
-
   const onErrorModalClose = () => {
     setIsErrorModalVisible(false);
   };
 
   function goToConfirmDonationPage() {
     history.push({
-      pathname: `/integrations/donation-confirm/${donationPackage.id}`,
+      pathname: `/user/donation-confirm/${donationPackage.id}`,
       state: {
         donationPackage,
         donatedRibons: donationPackage.requiredRibons * defaultPackagesQuantity,
       },
       search: history.location.search,
     });
-  }
-
-  function defaultEmail(): string {
-    return "null";
   }
 
   async function makeDonation() {

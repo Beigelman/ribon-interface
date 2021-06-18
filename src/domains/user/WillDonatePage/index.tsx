@@ -6,6 +6,7 @@ import * as S from "./styles";
 import WillDonateContent from "./WillDonateContent";
 import DonationPackages from "../../../mock/donationPackages";
 import DonationLayout from "../../../layouts/DonationLayout";
+import useNavigation from "../../../hooks/useNavigation";
 
 type Params = {
   id: string;
@@ -14,6 +15,7 @@ type Params = {
 function WillDonatePage(): JSX.Element {
   const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
   const { id: donationPackageId } = useParams<Params>();
+  const { navigateTo } = useNavigation();
 
   const onErrorModalClose = () => {
     setIsErrorModalVisible(false);
@@ -23,20 +25,23 @@ function WillDonatePage(): JSX.Element {
     <>
       <DonationLayout
         headerProps={{
-          color: DonationPackages[0].colorCode,
+          color: DonationPackages[parseInt(donationPackageId)].colorCode,
           onClose: () => null,
         }}
         desktopSidebarProps={{
           image: DonationPackages[0].ngo.willDonateImage,
         }}
         footerButtonProps={{
-          onPrimaryButtonClick: () => null,
+          onPrimaryButtonClick: () =>
+            navigateTo("/user/donation-confirm/" + donationPackageId),
           onSecondaryButtonClick: () => null,
           primaryButtonText: "Doar!",
           secondaryButtonText: "Cancelar",
         }}
       >
-        <WillDonateContent donationPackage={DonationPackages[0]} />
+        <WillDonateContent
+          donationPackage={DonationPackages[parseInt(donationPackageId)]}
+        />
       </DonationLayout>
       <Modal
         visible={isErrorModalVisible}
