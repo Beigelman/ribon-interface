@@ -22,7 +22,7 @@ function CausesContent({
     useState<boolean>(false);
 
   function navigateToWillDonatePage(donationPackage: DonationPackage) {
-    const pathname = `/integrations/email-confirm/${donationPackage.id}`;
+    const pathname = `/user/will-donate/${donationPackage.id}`;
 
     history.push({
       pathname,

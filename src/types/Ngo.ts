@@ -15,7 +15,6 @@ export default interface Ngo {
   willDonateImage: string;
   donationDoneImage: string;
   ribonsAmountToOneImpactUnit: number;
-  nextGoalMessage: string;
   activated?: boolean;
   donationImpactMessage?: string;
   shareImage: string;

@@ -27,7 +27,7 @@ function WelcomePage(): JSX.Element {
   }
 
   function onDonate() {
-    history.push({ pathname: "/users/causes", search: location.search });
+    history.push({ pathname: "/user/causes", search: location.search });
   }
 
   function renderCompanyLogo() {

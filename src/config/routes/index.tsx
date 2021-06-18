@@ -21,6 +21,10 @@ function Routes(): JSX.Element {
           <UserCausesPage />
         </Route>
 
+        <Route path="/user/will-donate" exact>
+          <UserWillDonatePage />
+        </Route>
+
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
