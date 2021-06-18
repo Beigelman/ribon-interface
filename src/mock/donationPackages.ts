@@ -2,7 +2,7 @@ import DonationPackage from "../types/DonationPackage";
 
 export const DonationPackages: Array<DonationPackage> = [
   {
-    id: 1,
+    id: 0,
     colorCode: "red",
     impactDays: 2,
     impactDescription: "string1",
@@ -36,7 +36,7 @@ export const DonationPackages: Array<DonationPackage> = [
     donationImpactMessage: "string",
   },
   {
-    id: 2,
+    id: 1,
     colorCode: "red",
     impactDays: 2,
     impactDescription: "string2",

@@ -7,23 +7,18 @@ import * as S from "./styles";
 import WelcomeTextContainer from "../../../components/WelcomeTextContainer";
 import desktopImage from "./assets/wfp-welcome-page.png";
 
-export const INTEGRATION_STEPS = [
-  "Qual causa?",
-  "Segurança",
-  "Doação",
-  "Confirmação",
-];
+export const INTEGRATION_STEPS = ["Qual causa?", "Doação", "Confirmação"];
 
 function WelcomePage(): JSX.Element {
   const history = useHistory();
   const { location } = history;
 
   function renderWelcomeTitle() {
-    return "Bem vinda(o) à Ribon!";
+    return "Welcome to Ribon!";
   }
 
   function renderWelcomeDescription() {
-    return "Que tal ajudar pessoas com uma doação gratuita?";
+    return "Let's help someone with a free donation!";
   }
 
   function onDonate() {
@@ -55,7 +50,7 @@ function WelcomePage(): JSX.Element {
         <S.ButtonContainer>
           <Button
             onClick={onDonate}
-            text="DOAR"
+            text="DONATE"
             leftIcon={heartIcon}
             className="btn-heart"
           />

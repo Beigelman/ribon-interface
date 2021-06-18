@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import PromoterPage from "../../domains/promoter";
+import IntegrationCouncilPage from "../../domains/integrationCouncil";
+import IntegrationPage from "../../domains/integration";
 import UserWelcomePage from "../../domains/user/WelcomePage";
 import UserCausesPage from "../../domains/user/CausesPage";
 import UserWillDonatePage from "../../domains/user/WillDonatePage";
@@ -13,6 +15,14 @@ function Routes(): JSX.Element {
       <Switch>
         <Route path="/promoter" exact>
           <PromoterPage />
+        </Route>
+
+        <Route path="/integration-council" exact>
+          <IntegrationCouncilPage />
+        </Route>
+
+        <Route path="/integration" exact>
+          <IntegrationPage />
         </Route>
 
         <Route path="/user/welcome" exact>
