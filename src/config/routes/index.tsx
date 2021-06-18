@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import PromoterPage from "../../domains/promoter";
 import UserWelcomePage from "../../domains/user/WelcomePage";
 import UserCausesPage from "../../domains/user/CausesPage";
+import UserWillDonatePage from "../../domains/user/WillDonatePage";
 
 function Routes(): JSX.Element {
   return (
@@ -21,7 +22,7 @@ function Routes(): JSX.Element {
           <UserCausesPage />
         </Route>
 
-        <Route path="/user/will-donate" exact>
+        <Route path="/user/will-donate/:id" exact>
           <UserWillDonatePage />
         </Route>
 

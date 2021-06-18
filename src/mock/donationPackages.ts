@@ -5,8 +5,8 @@ export const DonationPackages: Array<DonationPackage> = [
     id: 1,
     colorCode: "red",
     impactDays: 2,
-    impactDescription: "string",
-    longDescription: "string",
+    impactDescription: "string1",
+    longDescription: "string1",
     ngo: {
       id: 1,
       name: "string",
@@ -39,8 +39,8 @@ export const DonationPackages: Array<DonationPackage> = [
     id: 2,
     colorCode: "red",
     impactDays: 2,
-    impactDescription: "string",
-    longDescription: "string",
+    impactDescription: "string2",
+    longDescription: "string2",
     ngo: {
       id: 1,
       name: "string",

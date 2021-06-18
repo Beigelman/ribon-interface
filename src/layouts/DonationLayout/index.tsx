@@ -30,10 +30,10 @@ export type FooterButtonsProps = {
 export type Props = {
   children: JSX.Element;
   headerProps: HeaderProps;
-  currentStep: number;
+  currentStep?: number;
   desktopSidebarProps: DesktopSidebarProps;
   footerButtonProps: FooterButtonsProps;
-  timelineSteps: string[];
+  timelineSteps?: string[];
 };
 
 function DonationLayout({
@@ -68,7 +68,7 @@ function DonationLayout({
           }
         />
       )}
-      {(isMobile || isPad) && (
+      {(isMobile || isPad) && timelineSteps && currentStep && (
         <DonationTimeline steps={timelineSteps} currentStep={currentStep} />
       )}
       <S.GridContainer>
@@ -79,7 +79,7 @@ function DonationLayout({
           />
         </S.LeftContainer>
         <S.BodyContainer>
-          {isDesktop && (
+          {isDesktop && timelineSteps && currentStep && (
             <DonationTimeline steps={timelineSteps} currentStep={currentStep} />
           )}
           <S.ContentContainer>{children}</S.ContentContainer>
