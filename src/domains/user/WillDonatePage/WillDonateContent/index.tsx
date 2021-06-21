@@ -99,7 +99,7 @@ function WillDonateContent({ donationPackage }: Props): JSX.Element {
         onContinue={onContinuePress}
         onContinueDisabled={false}
         onContinueBackgroundColor={theme.colors.ribonBlue}
-        onContinueText={"Doar!"}
+        onContinueText={"DONATE!"}
       />
     </>
   );

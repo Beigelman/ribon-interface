@@ -14,12 +14,7 @@ function UserDonatingToNgo({
   logoUrl,
   withAnimation = false,
 }: Props): JSX.Element {
-  const user = { picture: "string" };
-
   function userPicture() {
-    if (user?.picture) {
-      return user.picture;
-    }
     return defaultPhoto;
   }
 

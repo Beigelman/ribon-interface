@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../../components/Modal";
-import IntegrationNavbar from "../IntegrationNavbar";
-import * as S from "./styles";
 import WillDonateContent from "./WillDonateContent";
 import DonationPackages from "../../../mock/donationPackages";
 import DonationLayout from "../../../layouts/DonationLayout";

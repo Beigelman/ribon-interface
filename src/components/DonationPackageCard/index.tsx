@@ -34,7 +34,7 @@ function DonationPackageCard({
     if (onDonateButtonText) {
       return onDonateButtonText;
     }
-    return "DOAR";
+    return "DONATE";
   }
 
   function showExclusiveModal() {

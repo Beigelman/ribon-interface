@@ -8,6 +8,7 @@ import UserWelcomePage from "../../domains/user/WelcomePage";
 import UserCausesPage from "../../domains/user/CausesPage";
 import UserWillDonatePage from "../../domains/user/WillDonatePage";
 import UserDonationConfirmPage from "../../domains/user/DonationConfirmPage";
+import UserDonationDone from "../../domains/user/DonationDonePage";
 
 function Routes(): JSX.Element {
   return (
@@ -39,6 +40,10 @@ function Routes(): JSX.Element {
 
         <Route path="/user/donation-confirm/:id" exact>
           <UserDonationConfirmPage />
+        </Route>
+
+        <Route path="/user/donation-done" exact>
+          <UserDonationDone />
         </Route>
 
         <Redirect to="/" />

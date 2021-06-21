@@ -45,7 +45,7 @@ function CausesContent({
 
   function onDonateButtonText(): string {
     if (hasDonated) return "Doação já feita";
-    return "DOAR";
+    return "DONATE";
   }
 
   function onCloseModal() {
