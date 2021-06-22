@@ -74,14 +74,14 @@ function CausesContent({
     <S.Container>
       <Modal
         visible={isVisibleHasDonatedModal}
-        title="Você já fez sua doação"
+        title="You already made a donation"
         onClose={onCloseModal}
         type="icon"
         icon={clockImage}
         primaryButtonCallback={() => null}
-        primaryButtonText="Começar!"
-        body="Faça sua conta Ribon para continuar doando de graça"
-        secondaryButtonText="Fechar"
+        primaryButtonText="Start!"
+        body="Become a promoter"
+        secondaryButtonText="Close"
         secondaryButtonCallback={onCloseModal}
       />
       {renderCards()}

@@ -19,8 +19,8 @@ function FooterNavigationButtons({
   onContinue,
   onContinueBackgroundColor = theme.colors.ribonBlue,
   onCancelBackgroundColor = theme.colors.darkGray,
-  onContinueText = "Continuar",
-  onCancelText = "Cancelar",
+  onContinueText = "Continue",
+  onCancelText = "Cancel",
   onContinueDisabled = false,
   hideOnCancel = false,
 }: Props): JSX.Element {

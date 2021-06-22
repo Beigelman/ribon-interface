@@ -7,7 +7,7 @@ import * as S from "./styles";
 import WelcomeTextContainer from "../../../components/WelcomeTextContainer";
 import desktopImage from "./assets/wfp-welcome-page.png";
 
-export const INTEGRATION_STEPS = ["Qual causa?", "Doação", "Confirmação"];
+export const INTEGRATION_STEPS = ["What cause?", "Donation", "Confirmation"];
 
 function WelcomePage(): JSX.Element {
   const history = useHistory();

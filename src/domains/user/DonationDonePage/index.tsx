@@ -1,20 +1,19 @@
 import React from "react";
 import * as S from "./styles";
+import { useHistory } from "react-router-dom";
 import IntegrationNavbar from "../IntegrationNavbar";
 import ConectionImage from "./assets/group-34432.svg";
 import Heart from "./assets/heart.svg";
 import theme from "../../../styles/theme";
 import Button from "../../../components/Button";
 import DesktopSidebar from "../../../components/DesktopSidebar";
-import { windowOrigin } from "../../../lib/windowHelpers";
 
 function DonationDonePage(): JSX.Element {
-  function continueUrl() {
-    return "string";
-  }
+  const history = useHistory();
+  const { location } = history;
 
   function handleContinueButtonClick() {
-    window.open(continueUrl(), "_self");
+    history.push({ pathname: "/promoter", search: location.search });
   }
 
   function handleGoBackFlowButtonClick() {
@@ -40,9 +39,7 @@ function DonationDonePage(): JSX.Element {
         </S.SidebarContainer>
 
         <S.BodyContainer>
-          <S.Title>
-            Espere sua próxima doação gratuita disponibilizada por:
-          </S.Title>
+          <S.Title>Await your next free donation available for:</S.Title>
           <S.CompanyContainer>
             <S.CompanyImage src={"logo"} alt="partner-logo" />
           </S.CompanyContainer>
@@ -58,7 +55,7 @@ function DonationDonePage(): JSX.Element {
               leftIcon={Heart}
               onClick={handleContinueButtonClick}
               backgroundColor={theme.colors.ribonBlue}
-              text="Quero continuar ajudando hoje"
+              text="Become a promoter"
             />
             {renderCompanyButton()}
           </S.DesktopButtonContainer>
@@ -70,7 +67,7 @@ function DonationDonePage(): JSX.Element {
                 leftIcon={Heart}
                 onClick={handleContinueButtonClick}
                 backgroundColor={theme.colors.ribonBlue}
-                text="Quero continuar ajudando hoje"
+                text="Become a promoter"
               />
               {renderCompanyButton()}
             </S.ButtonContainer>

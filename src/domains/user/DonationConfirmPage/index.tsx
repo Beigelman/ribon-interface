@@ -38,7 +38,7 @@ function DonationConfirmPage(): JSX.Element {
 
   function onDonationFinish() {
     navigateTo({
-      pathname: "/integrations/donation-done",
+      pathname: "/user/donation-done",
       state: { from: location.pathname },
     });
   }
@@ -76,7 +76,7 @@ function DonationConfirmPage(): JSX.Element {
             image: donationPackage.ngo.willDonateImage,
           }}
           footerButtonProps={{
-            primaryButtonText: "Continuar",
+            primaryButtonText: "Continue",
             onPrimaryButtonClick: onDonationFinish,
           }}
           timelineSteps={INTEGRATION_STEPS}
@@ -91,7 +91,7 @@ function DonationConfirmPage(): JSX.Element {
               </S.UserDonationContainer>
 
               <S.ImpactText color={pageColor}>
-                Obrigada pela doação!
+                Thanks for the donation!
               </S.ImpactText>
 
               <S.ImpactContainer>

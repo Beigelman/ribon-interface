@@ -21,7 +21,7 @@ function LockLayer(props: Props): JSX.Element {
       onClose={handleModalClose}
       title="Causa exclusiva para assinante"
       body="Deseja ajudar a esta causa? Basta ser assinante Ribon que você terá vários benefícios além desse!"
-      primaryButtonText="Continuar"
+      primaryButtonText="Continue"
       primaryButtonCallback={() => {
         history.push("/payments");
       }}
