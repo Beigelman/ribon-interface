@@ -5,6 +5,7 @@ import FormInput from "../../components/FormInput";
 import Background from "../../assets/images/background.jpg";
 import HeartIcon from "../../assets/icons/heart.svg";
 import useContract from "../../hooks/useContract";
+import useAccount from "../../hooks/useAccount";
 
 export default function PromoterPage(): JSX.Element {
   const [donationValue, setDonationValue] = useState("0");
@@ -12,20 +13,24 @@ export default function PromoterPage(): JSX.Element {
   const [donationPoolValue, setDonationPoolValue] = useState(0);
   const { ribonContract, donationTokenContract } = useContract();
 
+  const { account } = useAccount();
+
   const RIBON_CONTRACT_ADDRESS = "0x49D7028663D067dE4A62AadF0258B0fAA107Fe23";
 
   const deposit = async () => {
     setIsLoading(true);
     await donationTokenContract?.methods
       .approve(RIBON_CONTRACT_ADDRESS, parseInt(donationValue))
-      .call()
+      .send({ from: account })
       .then(() => {
         console.log("1");
-        ribonContract?.methods.deposit(parseInt(donationValue)).call();
-      })
-      .then(() => {
-        console.log("2");
-        setIsLoading(false);
+        ribonContract?.methods
+          .deposit(parseInt(donationValue))
+          .send({ from: account })
+          .then(() => {
+            console.log("2");
+            setIsLoading(false);
+          });
       });
   };
 
