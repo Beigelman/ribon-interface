@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Drizzle, IDrizzleOptions } from "@drizzle/store";
-import { DrizzleContext } from "@drizzle/react-plugin";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -9,17 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import RibonGov from "./contracts/RibonGov.json";
 import Ribon from "./contracts/Ribon.json";
 
-const options = {
-  contracts: [RibonGov, Ribon],
-};
-
-const drizzle = new Drizzle(options as any);
-
 ReactDOM.render(
   <React.StrictMode>
-    <DrizzleContext.Provider drizzle={drizzle}>
-      <App />
-    </DrizzleContext.Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

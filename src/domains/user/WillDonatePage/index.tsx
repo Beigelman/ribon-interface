@@ -24,7 +24,11 @@ function WillDonatePage(): JSX.Element {
 
   const donate = async () => {
     try {
-      await integrationApi.donateThoughtIntegration(account);
+      const { data } = await integrationApi.donateThoughtIntegration(
+        account,
+        1
+      );
+      console.log(data);
       navigateTo("/user/donation-confirm/" + donationPackageId);
     } catch (error) {
       setIsErrorModalVisible(true);
