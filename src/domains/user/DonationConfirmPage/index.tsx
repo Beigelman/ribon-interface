@@ -128,18 +128,18 @@ function DonationConfirmPage(): JSX.Element {
               <Heart />
 
               <S.ContinueDonatingText>
-                Quer ajudar ainda mais?
+                Want to help even more?
               </S.ContinueDonatingText>
 
               <S.ContinueDonatingDescription>
-                Doe 20 reais e cause muito mais impacto com a sua doação!
+                Donate USDc and make a lot more impact with your donation!
               </S.ContinueDonatingDescription>
 
               <S.ButtonContainer>
                 <Button
                   onClick={goToSubscribePage}
                   backgroundColor={pageColor}
-                  text="Quero ajudar ainda mais!"
+                  text="I want to help even more!"
                 />
               </S.ButtonContainer>
             </S.ContinueDonatingContainer>

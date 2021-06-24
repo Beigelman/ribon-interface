@@ -47,8 +47,8 @@ function DonationDonePage(): JSX.Element {
             <span>Ou</span>
           </S.DividerWithText>
           <S.Title>
-            Conheça o app e continue doando gratuitamente para essa e outras
-            causas{" "}
+            Discover the app and keep donating for free to this and others
+            causes{" "}
           </S.Title>
           <S.DesktopButtonContainer>
             <Button
