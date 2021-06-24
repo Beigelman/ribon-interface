@@ -44,8 +44,8 @@ function WillDonatePage(): JSX.Element {
         footerButtonProps={{
           onPrimaryButtonClick: () => donate(),
           onSecondaryButtonClick: () => null,
-          primaryButtonText: "Doar!",
-          secondaryButtonText: "Cancelar",
+          primaryButtonText: "Donate!",
+          secondaryButtonText: "Cancel",
         }}
       >
         <WillDonateContent

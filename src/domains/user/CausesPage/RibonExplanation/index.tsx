@@ -6,18 +6,18 @@ function RibonExplanation(): JSX.Element {
   return (
     <S.RibonDescriptionContainer>
       <S.ContentSection>
-        <S.Title>Você conhece a Ribon?</S.Title>
+        <S.Title>Do you know Ribon?</S.Title>
         <S.Text>
-          Somos uma startup brasileira que estimula doações para projetos
-          incríveis
+          We are a Brazilian startup that encourages donations to projects
+          incredible
         </S.Text>
         <S.Text>
-          Com a gente é fácil doar! Doe com um clique, e sem gastar seu próprio
-          dinheiro
+          With us it is easy to donate! Donate with one click, and without
+          spending your own cash
         </S.Text>
         <S.Text>
-          Aqui suas doações são pagas por parceiros da Ribon, que financiam suas
-          doações
+          Here your donations are paid by Ribon promoters, who fund your
+          donations
         </S.Text>
         <img src={ribonBlueLogo} alt="ribon" />
       </S.ContentSection>
