@@ -162,12 +162,12 @@ function Modal({
         >
           <S.Icon src={errorIcon} />
           <S.Title color={titleColor}>
-            {title || "Temos um problema aqui..."}
+            {title || "A problem occurred..."}
           </S.Title>
           <S.Body>
-            {body || "Tivemos um problema no app, tente novamente em breve"}
+            {body || "We had a problem with the app, please try again."}
           </S.Body>
-          <Button text="Voltar" onClick={onClose} />
+          <Button text="Back" onClick={onClose} />
         </S.ModalWithIcon>
       );
     case "icon":

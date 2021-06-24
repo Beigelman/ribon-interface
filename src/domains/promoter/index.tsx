@@ -23,12 +23,10 @@ export default function PromoterPage(): JSX.Element {
       .approve(RIBON_CONTRACT_ADDRESS, parseInt(donationValue))
       .send({ from: account })
       .then(() => {
-        console.log("1");
         ribonContract?.methods
           .deposit(parseInt(donationValue))
           .send({ from: account })
           .then(() => {
-            console.log("2");
             setIsLoading(false);
           });
       });
