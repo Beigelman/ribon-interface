@@ -2,6 +2,7 @@ import Ngo from "./Ngo";
 
 export default interface DonationPackage {
   id: number;
+  wallet: string;
   colorCode: string;
   impactDays: number;
   impactDescription: string;

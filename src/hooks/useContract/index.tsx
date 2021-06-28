@@ -3,7 +3,7 @@ import Web3 from "web3";
 import { Contract } from "web3-eth-contract";
 
 const Ribon = require("../../contracts/Ribon.json");
-const DonationToken = require("../../contracts/RibonGov.json");
+const DonationToken = require("../../contracts/DonationToken.json");
 
 declare global {
   interface Window {

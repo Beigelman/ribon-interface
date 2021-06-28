@@ -14,18 +14,4 @@ const api = Axios.create({
   validateStatus: (status) => status >= 200 && status < 300,
 });
 
-api.interceptors.request.use((request) =>
-  request?.data
-    ? { ...request, data: snakeCaseKeys(request?.data, { deep: true }) }
-    : request
-);
-
-api.interceptors.response.use(
-  (response) => ({
-    ...response,
-    data: camelCaseKeys(response.data, { deep: true }),
-  }),
-  (error) => Promise.reject(error)
-);
-
 export default api;

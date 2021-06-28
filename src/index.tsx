@@ -4,9 +4,6 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import RibonGov from "./contracts/RibonGov.json";
-import Ribon from "./contracts/Ribon.json";
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

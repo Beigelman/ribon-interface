@@ -25,6 +25,7 @@ function WillDonatePage(): JSX.Element {
   const donate = async () => {
     try {
       const { data } = await integrationApi.donateThoughtIntegration(
+        DonationPackages[parseInt(donationPackageId)].wallet,
         account,
         1
       );

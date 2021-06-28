@@ -15,7 +15,7 @@ export default function PromoterPage(): JSX.Element {
 
   const { account } = useAccount();
 
-  const RIBON_CONTRACT_ADDRESS = "0x49D7028663D067dE4A62AadF0258B0fAA107Fe23";
+  const RIBON_CONTRACT_ADDRESS = "0xE840fEe2D7f1cff4B843F0E57105542eE29D5e73";
 
   const deposit = async () => {
     setIsLoading(true);

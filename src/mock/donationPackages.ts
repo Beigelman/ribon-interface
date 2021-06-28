@@ -3,6 +3,7 @@ import DonationPackage from "../types/DonationPackage";
 export const DonationPackages: Array<DonationPackage> = [
   {
     id: 0,
+    wallet: "0xAD92c59858F3690DFfACfC18E3Bc5714cb4b02Ca",
     colorCode: "red",
     impactDays: 2,
     impactDescription:
@@ -48,6 +49,7 @@ export const DonationPackages: Array<DonationPackage> = [
   },
   {
     id: 1,
+    wallet: "0xB6221a7b81AC2b706D3bd40A7Bb12482D05C5544",
     colorCode: "#3F51B5",
     impactDays: 2,
     impactDescription: "Providing Medicines to Vulnerable Families",
