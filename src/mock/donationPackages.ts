@@ -4,18 +4,16 @@ export const DonationPackages: Array<DonationPackage> = [
   {
     id: 0,
     wallet: "0xAD92c59858F3690DFfACfC18E3Bc5714cb4b02Ca",
-    colorCode: "red",
+    colorCode: "00B5BF",
     impactDays: 2,
-    impactDescription:
-      "Basic food baskets for remote communities in the Amazon",
+    impactDescription: "days of safe water",
     longDescription: "Basic food baskets for remote communities in the Amazon",
     ngo: {
       id: 1,
-      name: "Sustainable Amazon Foundation",
-      impactIconBackgroundColor: "#7FBB46",
-      impactDescription:
-        "ribons donated to the Amazonas Sustainable Foundation",
-      cause: "Sustainable Amazon Foundation (FAS)",
+      name: "Evidence Action",
+      impactIconBackgroundColor: "#00B5BF",
+      impactDescription: "days of safe water",
+      cause: "Safe water",
       whiteLogoUrl:
         "https://storage.googleapis.com/business-ribon/Ongs/FAS/White%20Logo%20URL%20-%20CAUSA.png",
       logoUrl:
@@ -26,13 +24,13 @@ export const DonationPackages: Array<DonationPackage> = [
       willDonateImageUrl:
         "https://storage.googleapis.com/business-ribon/Ongs/FAS/Will%20donate%20image%20URL%20-%20CAUSA.png",
       link: "https://bit.ly/35dQOQs",
-      sliderImages: [],
       cardBackgroundImage:
         "https://storage.googleapis.com/ribon-api_activestorage/8XUmN1vXL2MDDz7onQQZwPSq?GoogleAccessId=ribon-api-active-storage%40ribon-api.iam.gserviceaccount.com&Expires=1624285946&Signature=F3WFp3Fo0Nc%2FWcWRe8ZB98KI0riRk2opD0wB5i0%2FRIlFmfahYHa3g74%2BhcG2s%2Bqumrlb4GmBvTte2OERqrR4T6aws%2BwJ%2Bv%2Bm3Wtd6iLgz43mIYWdmrhTKcMEc68Bz%2BVMhVmNbx7WpR2Pmy2LAa8RL9E8FiQQLHAAaqHaed8OlOujpqhG%2BA340KCiwfz%2F%2FCvqYISO%2F2NvTFUiFEIJC9wVgbbU8kj%2BXEtHoHUWCxETbkoFFj7DqJbsGnSGZp%2BLAZ%2Fn9j08WdYi%2FmWXOgo9McMFFgjCwuS6Ylqmc1X57E12mgJCVsyYl76P%2F9vM%2By4yHFFqNlU5As3PUWI37I%2BaFFN88A%3D%3D&response-content-disposition=inline%3B+filename%3D%22Background+image+-+CAUSA.png%22%3B+filename%2A%3DUTF-8%27%27Background%2520image%2520-%2520CAUSA.png&response-content-type=image%2Fpng",
       willDonateImage:
         "https://storage.googleapis.com/business-ribon/Ongs/FAS/Will%20donate%20image%20URL%20-%20CAUSA.png",
       donationDoneImage:
         "https://storage.googleapis.com/business-ribon/Ongs/FAS/Donation%20done%20image%20URL%20-%20CAUSA.png",
+      sliderImages: [],
       ribonsAmountToOneImpactUnit: 7200,
       activated: true,
       donationImpactMessage:
@@ -50,16 +48,16 @@ export const DonationPackages: Array<DonationPackage> = [
   {
     id: 1,
     wallet: "0xB6221a7b81AC2b706D3bd40A7Bb12482D05C5544",
-    colorCode: "#3F51B5",
+    colorCode: "#EF5350",
     impactDays: 2,
-    impactDescription: "Providing Medicines to Vulnerable Families",
+    impactDescription: "days of basic health",
     longDescription: "Providing Medicines to Vulnerable Families",
     ngo: {
       id: 1,
-      name: "Dara Institute",
-      impactIconBackgroundColor: "#3F51B5",
-      impactDescription: "string",
-      cause: "Dara Institute",
+      name: "Living Goods",
+      impactIconBackgroundColor: "#EF5350",
+      impactDescription: "days of basic health",
+      cause: "Basic health",
       whiteLogoUrl:
         "https://storage.googleapis.com/ribon-api_activestorage/Dara.png",
       logoUrl:

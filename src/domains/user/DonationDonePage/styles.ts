@@ -178,3 +178,14 @@ export const DesktopButtonContainer = styled.div`
     }
   `}
 `;
+
+export const ImpactList = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-around;
+
+    > div:first-child {
+      margin-right: 20px;
+    }
+  `}
+`;

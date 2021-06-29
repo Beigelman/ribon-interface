@@ -8,7 +8,7 @@ export type Props = {
   image: string;
   impactPercentage: number;
   impactDescription: string;
-  nextGoalMessage?: string;
+  impactDays?: number;
   children?: JSX.Element;
 };
 
@@ -16,21 +16,15 @@ function ImpactSection({
   image,
   impactPercentage,
   impactDescription,
-  nextGoalMessage,
+  impactDays,
   children,
 }: Props): JSX.Element {
-  function descriptionWithProgress(impactValue: number) {
-    return impactDescription
-      .replace(/\d./, `${impactValue} `)
-      .replace("$IMPACT", `${impactValue} `);
-  }
-
   return (
     <S.Container>
       <AnimatedProgressProvider
         valueStart={0}
         valueEnd={impactPercentage}
-        duration={5.0}
+        duration={1.0}
         easingFunction={easeLinear}
         repeat={false}
       >
@@ -42,14 +36,7 @@ function ImpactSection({
             <S.ImpactContainer>
               <CircleProgress image={image} value={value} />
               <div>
-                {impactCount > 0 && (
-                  <S.ImpactText>
-                    {descriptionWithProgress(impactCount)}
-                  </S.ImpactText>
-                )}
-                {nextGoalMessage && impactPercentage < 100 && (
-                  <S.ImpactText>{nextGoalMessage}</S.ImpactText>
-                )}
+                <S.ImpactText>{`${impactDays} ${impactDescription}`}</S.ImpactText>
                 {children}
               </div>
             </S.ImpactContainer>

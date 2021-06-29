@@ -97,9 +97,9 @@ function DonationConfirmPage(): JSX.Element {
               <S.ImpactContainer>
                 <ImpactSection
                   image={donationPackage.ngo.donationDoneImage}
-                  impactPercentage={2}
-                  impactDescription={"donationImpactMessage"}
-                  nextGoalMessage={"nextGoalMessage"}
+                  impactPercentage={100}
+                  impactDescription={donationPackage.impactDescription}
+                  impactDays={donationPackage.impactDays}
                 >
                   <SocialShare
                     tweetText={tweetText()}

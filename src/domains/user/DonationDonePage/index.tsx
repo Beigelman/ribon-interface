@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import { useHistory } from "react-router-dom";
 import IntegrationNavbar from "../IntegrationNavbar";
@@ -7,6 +7,8 @@ import Heart from "./assets/heart.svg";
 import theme from "../../../styles/theme";
 import Button from "../../../components/Button";
 import DesktopSidebar from "../../../components/DesktopSidebar";
+import DonationPackages from "../../../mock/donationPackages";
+import UserImpactListItem from "../../../components/UserImpactListItem";
 
 function DonationDonePage(): JSX.Element {
   const history = useHistory();
@@ -16,18 +18,24 @@ function DonationDonePage(): JSX.Element {
     history.push({ pathname: "/promoter", search: location.search });
   }
 
-  function handleGoBackFlowButtonClick() {
-    return "string";
-  }
-
-  function renderCompanyButton() {
-    <Button
-      onClick={handleGoBackFlowButtonClick}
-      backgroundColor="#fff"
-      borderColor={theme.colors.ribonBlue}
-      textColor={theme.colors.ribonBlue}
-      text="Voltar para empresa"
-    />;
+  function renderImpact() {
+    return (
+      <S.ImpactList>
+        {DonationPackages.map((item) => (
+          <UserImpactListItem
+            name={item.ngo.name}
+            logo={item.ngo.logoUrl}
+            backgroundColor={item.colorCode}
+            circleImage={item.ngo.backgroundImageUrl}
+            impactText={item.impactDescription}
+            ribons={100}
+            impactDays={2}
+            nonProfitWallet={item.wallet}
+            key={item.wallet}
+          />
+        ))}
+      </S.ImpactList>
+    );
   }
 
   return (
@@ -39,12 +47,10 @@ function DonationDonePage(): JSX.Element {
         </S.SidebarContainer>
 
         <S.BodyContainer>
-          <S.Title>Await your next free donation available for:</S.Title>
-          <S.CompanyContainer>
-            <S.CompanyImage src={"logo"} alt="partner-logo" />
-          </S.CompanyContainer>
+          <S.Title>see how much impact you made:</S.Title>
+          {renderImpact()}
           <S.DividerWithText>
-            <span>Ou</span>
+            <span>-</span>
           </S.DividerWithText>
           <S.Title>
             Discover the app and keep donating for free to this and others
@@ -57,7 +63,6 @@ function DonationDonePage(): JSX.Element {
               backgroundColor={theme.colors.ribonBlue}
               text="Become a promoter"
             />
-            {renderCompanyButton()}
           </S.DesktopButtonContainer>
           <S.Image src={ConectionImage} alt="pessoas-se-conectando" />
 
@@ -69,7 +74,6 @@ function DonationDonePage(): JSX.Element {
                 backgroundColor={theme.colors.ribonBlue}
                 text="Become a promoter"
               />
-              {renderCompanyButton()}
             </S.ButtonContainer>
           </S.Footer>
         </S.BodyContainer>

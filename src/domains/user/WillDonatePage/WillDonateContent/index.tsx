@@ -20,8 +20,6 @@ function WillDonateContent({ donationPackage }: Props): JSX.Element {
   const [donationInProgress, setDonationInProgress] = useState<boolean>(false);
   const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
 
-  const DEFAULT_QULTURE_ROCKS_EMAIL = "ribon-integration@qulture.rocks";
-
   function navigateToCausesPage() {
     history.goBack();
   }
