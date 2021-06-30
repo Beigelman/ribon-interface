@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Button from "../../components/Button";
-import FormInput from "../../components/FormInput";
 import Background from "../../assets/images/background.jpg";
-import HeartIcon from "../../assets/icons/heart.svg";
 import useContract from "../../hooks/useContract";
-import useAccount from "../../hooks/useAccount";
 import Modal from "../../components/Modal";
 import RibonIcon from "../../assets/icons/ribon.svg";
 import RibonWhiteLogo from "../../assets/icons/ribonWhite-logo.svg";
@@ -28,9 +25,9 @@ export default function PromoterPage(): JSX.Element {
   const [walletIsConnected, setWalletIsConnected] = useState(false);
   const [donationPoolValue, setDonationPoolValue] = useState(0);
   const [totalDonatedValue, setTotalDonatedValue] = useState(0);
-  const { ribonContract, donationTokenContract } = useContract();
+  const [userWallet, setUserWallet] = useState("");
 
-  const { account } = useAccount();
+  const { ribonContract, donationTokenContract } = useContract();
 
   const RIBON_CONTRACT_ADDRESS = "0xE840fEe2D7f1cff4B843F0E57105542eE29D5e73";
 
@@ -50,11 +47,11 @@ export default function PromoterPage(): JSX.Element {
     setIsWaitingForConfirmation(true);
     await donationTokenContract?.methods
       .approve(RIBON_CONTRACT_ADDRESS, parseInt(donationValue))
-      .send({ from: account })
+      .send({ from: userWallet })
       .then(() => {
         ribonContract?.methods
           .deposit(parseInt(donationValue))
-          .send({ from: account })
+          .send({ from: userWallet })
           .then(() => {
             setIsWaitingForConfirmation(false);
             setIsThanksModalVisible(true);
@@ -80,7 +77,8 @@ export default function PromoterPage(): JSX.Element {
   };
 
   if (window.ethereum) {
-    window.ethereum.on("accountsChanged", () => {
+    window.ethereum.on("accountsChanged", (accounts: Array<string>) => {
+      setUserWallet(accounts[0]);
       setWalletIsConnected(true);
     });
   }
@@ -95,7 +93,14 @@ export default function PromoterPage(): JSX.Element {
       );
     }
     getDonationPoolBalance();
-  }, [deposit]);
+
+    if (window.ethereum?.selectedAddress) {
+      setWalletIsConnected(true);
+      setUserWallet(window.ethereum?.selectedAddress);
+    } else {
+      setWalletIsConnected(false);
+    }
+  }, [deposit, connectWallet]);
 
   return (
     <S.Container>
@@ -121,7 +126,7 @@ export default function PromoterPage(): JSX.Element {
               placeholder={"0.0"}
             />
           </S.InputContainer>
-          {account ? (
+          {walletIsConnected ? (
             <Button text="Donate" onClick={() => deposit()} />
           ) : (
             <Button
