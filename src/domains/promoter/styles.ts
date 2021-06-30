@@ -25,11 +25,21 @@ export const Card = styled.div`
   `}
 `;
 
-export const InputContainer = styled.div`
+export const FormContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 12px;
     border-bottom: 1px solid ${theme.colors.lightGray};
+  `}
+`;
+
+export const InputContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
   `}
 `;
 
@@ -65,5 +75,35 @@ export const BackgroundContainer = styled.img`
     height: auto;
     min-height: 192px;
     object-fit: cover;
+  `}
+`;
+
+export const Token = styled.img`
+  ${({ theme }) => css`
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+  `}
+`;
+
+export const TokenContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 12px;
+  `}
+`;
+
+export const Input = styled.input`
+  ${({ theme }) => css`
+    border-radius: 8px;
+    width: 120px;
+    border-color: ${theme.colors.ribonBlue};
+    border-style: solid;
+    color: ${theme.colors.ribonBlack};
+    font-size: 16px;
+    padding: 4px 6px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   `}
 `;

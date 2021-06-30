@@ -9,6 +9,7 @@ import useAccount from "../../hooks/useAccount";
 import Modal from "../../components/Modal";
 import RibonIcon from "../../assets/icons/ribon.svg";
 import RibonWhiteLogo from "../../assets/icons/ribonWhite-logo.svg";
+import USDcLogo from "../../assets/icons/usdc-logo.svg";
 
 declare global {
   interface Window {
@@ -99,20 +100,23 @@ export default function PromoterPage(): JSX.Element {
       </S.LogoContainer>
 
       <S.Card>
-        <S.InputContainer>
-          <FormInput
-            name="coin"
-            label={"Amount"}
-            type={"text"}
-            value={donationValue}
-            setValue={setDonationValue}
-          />
-          {account ? (
-            <Button
-              text="Donate"
-              leftIcon={HeartIcon}
-              onClick={() => deposit()}
+        <S.FormContainer>
+          <S.InputContainer>
+            <S.TokenContainer>
+              <S.Token src={USDcLogo} />
+              <span> USDc</span>
+            </S.TokenContainer>
+
+            <S.Input
+              name="coin"
+              type={"text"}
+              value={donationValue}
+              onChange={(e) => setDonationValue(e.target.value)}
+              placeholder={"0.0"}
             />
+          </S.InputContainer>
+          {account ? (
+            <Button text="Donate" onClick={() => deposit()} />
           ) : (
             <Button
               text="Connect wallet"
@@ -122,7 +126,7 @@ export default function PromoterPage(): JSX.Element {
               onClick={() => connectWallet()}
             />
           )}
-        </S.InputContainer>
+        </S.FormContainer>
         <S.InfoContainer>
           <S.InfoItem>
             <h3>{donationPoolValue}</h3>
