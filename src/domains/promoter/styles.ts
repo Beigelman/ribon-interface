@@ -48,3 +48,22 @@ export const InfoItem = styled.div`
     width: 50%;
   `}
 `;
+
+export const LogoContainer = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    top: 16px;
+    left: 36px;
+    width: 76px;
+    height: 37px;
+  `}
+`;
+
+export const BackgroundContainer = styled.img`
+  ${({ theme }) => css`
+    width: 100%;
+    height: auto;
+    min-height: 192px;
+    object-fit: cover;
+  `}
+`;

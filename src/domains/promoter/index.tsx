@@ -8,6 +8,7 @@ import useContract from "../../hooks/useContract";
 import useAccount from "../../hooks/useAccount";
 import Modal from "../../components/Modal";
 import RibonIcon from "../../assets/icons/ribon.svg";
+import RibonWhiteLogo from "../../assets/icons/ribonWhite-logo.svg";
 
 declare global {
   interface Window {
@@ -20,6 +21,7 @@ export default function PromoterPage(): JSX.Element {
   const [donationValue, setDonationValue] = useState("0");
   const [isWaitingForConfirmation, setIsWaitingForConfirmation] =
     useState(false);
+  const [isThanksModalVisible, setIsThanksModalVisible] = useState(false);
   const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
   const [walletIsConnected, setWalletIsConnected] = useState(false);
   const [donationPoolValue, setDonationPoolValue] = useState(0);
@@ -90,7 +92,12 @@ export default function PromoterPage(): JSX.Element {
 
   return (
     <S.Container>
-      <img src={Background} />
+      <S.BackgroundContainer src={Background} />
+
+      <S.LogoContainer>
+        <img src={RibonWhiteLogo} />
+      </S.LogoContainer>
+
       <S.Card>
         <S.InputContainer>
           <FormInput
@@ -127,6 +134,7 @@ export default function PromoterPage(): JSX.Element {
           </S.InfoItem>
         </S.InfoContainer>
       </S.Card>
+
       <Modal
         visible={isErrorModalVisible}
         onClose={onErrorModalClose}
@@ -136,10 +144,18 @@ export default function PromoterPage(): JSX.Element {
 
       <Modal
         visible={isWaitingForConfirmation}
-        onClose={onWaitingForConfirmationModalClose}
+        type="icon"
         icon={RibonIcon}
-        title="Waiting For Confirmation"
+        title="Waiting for confirmation"
         body="Confirm this transaction in your wallet"
+      />
+
+      <Modal
+        visible={isThanksModalVisible}
+        type="icon"
+        icon={RibonIcon}
+        title="Donation Successful!"
+        body="Thank you for your donation, now your money will be distributed so that many people can donate as well."
       />
     </S.Container>
   );
