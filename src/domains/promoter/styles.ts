@@ -99,11 +99,9 @@ export const Input = styled.input`
   ${({ theme }) => css`
     border-radius: 8px;
     width: 120px;
-    border-color: ${theme.colors.ribonBlue};
-    border-style: solid;
+    border: 1px solid ${theme.colors.ribonBlue};
     color: ${theme.colors.ribonBlack};
     font-size: 16px;
     padding: 4px 6px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   `}
 `;

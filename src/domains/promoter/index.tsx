@@ -10,6 +10,7 @@ import Modal from "../../components/Modal";
 import RibonIcon from "../../assets/icons/ribon.svg";
 import RibonWhiteLogo from "../../assets/icons/ribonWhite-logo.svg";
 import USDcLogo from "../../assets/icons/usdc-logo.svg";
+import theme from "../../styles/theme";
 
 declare global {
   interface Window {
@@ -19,7 +20,7 @@ declare global {
 }
 
 export default function PromoterPage(): JSX.Element {
-  const [donationValue, setDonationValue] = useState("0");
+  const [donationValue, setDonationValue] = useState("");
   const [isWaitingForConfirmation, setIsWaitingForConfirmation] =
     useState(false);
   const [isThanksModalVisible, setIsThanksModalVisible] = useState(false);
@@ -41,6 +42,10 @@ export default function PromoterPage(): JSX.Element {
     setIsWaitingForConfirmation(false);
   };
 
+  const onThanksModalClose = () => {
+    setIsThanksModalVisible(false);
+  };
+
   const deposit = async () => {
     setIsWaitingForConfirmation(true);
     await donationTokenContract?.methods
@@ -52,6 +57,7 @@ export default function PromoterPage(): JSX.Element {
           .send({ from: account })
           .then(() => {
             setIsWaitingForConfirmation(false);
+            setIsThanksModalVisible(true);
           })
           .catch(() => {
             setIsWaitingForConfirmation(false);
@@ -121,8 +127,8 @@ export default function PromoterPage(): JSX.Element {
             <Button
               text="Connect wallet"
               backgroundColor="white"
-              textColor="black"
-              borderColor="red"
+              textColor={theme.colors.ribonBlack}
+              borderColor={theme.colors.ribonBlue}
               onClick={() => connectWallet()}
             />
           )}
@@ -152,6 +158,8 @@ export default function PromoterPage(): JSX.Element {
         icon={RibonIcon}
         title="Waiting for confirmation"
         body="Confirm this transaction in your wallet"
+        primaryButtonCallback={onWaitingForConfirmationModalClose}
+        primaryButtonText={"Cancel"}
       />
 
       <Modal
@@ -160,6 +168,8 @@ export default function PromoterPage(): JSX.Element {
         icon={RibonIcon}
         title="Donation Successful!"
         body="Thank you for your donation, now your money will be distributed so that many people can donate as well."
+        primaryButtonCallback={onThanksModalClose}
+        primaryButtonText={"Ok"}
       />
     </S.Container>
   );
