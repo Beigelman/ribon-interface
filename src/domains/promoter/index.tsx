@@ -6,19 +6,40 @@ import Background from "../../assets/images/background.jpg";
 import HeartIcon from "../../assets/icons/heart.svg";
 import useContract from "../../hooks/useContract";
 import useAccount from "../../hooks/useAccount";
+import Modal from "../../components/Modal";
+import RibonIcon from "../../assets/icons/ribon.svg";
+
+declare global {
+  interface Window {
+    web3: any;
+    ethereum: any;
+  }
+}
 
 export default function PromoterPage(): JSX.Element {
   const [donationValue, setDonationValue] = useState("0");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isWaitingForConfirmation, setIsWaitingForConfirmation] =
+    useState(false);
+  const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
+  const [walletIsConnected, setWalletIsConnected] = useState(false);
   const [donationPoolValue, setDonationPoolValue] = useState(0);
+  const [totalDonatedValue, setTotalDonatedValue] = useState(0);
   const { ribonContract, donationTokenContract } = useContract();
 
   const { account } = useAccount();
 
   const RIBON_CONTRACT_ADDRESS = "0xE840fEe2D7f1cff4B843F0E57105542eE29D5e73";
 
+  const onErrorModalClose = () => {
+    setIsErrorModalVisible(false);
+  };
+
+  const onWaitingForConfirmationModalClose = () => {
+    setIsWaitingForConfirmation(false);
+  };
+
   const deposit = async () => {
-    setIsLoading(true);
+    setIsWaitingForConfirmation(true);
     await donationTokenContract?.methods
       .approve(RIBON_CONTRACT_ADDRESS, parseInt(donationValue))
       .send({ from: account })
@@ -27,23 +48,45 @@ export default function PromoterPage(): JSX.Element {
           .deposit(parseInt(donationValue))
           .send({ from: account })
           .then(() => {
-            setIsLoading(false);
+            setIsWaitingForConfirmation(false);
+          })
+          .catch(() => {
+            setIsWaitingForConfirmation(false);
+            setIsErrorModalVisible(true);
           });
+      })
+      .catch(() => {
+        setIsWaitingForConfirmation(false);
+        setIsErrorModalVisible(true);
       });
   };
+
+  const connectWallet = async () => {
+    try {
+      await window.ethereum.enable();
+      setWalletIsConnected(true);
+    } catch (error) {
+      setWalletIsConnected(false);
+    }
+  };
+
+  if (window.ethereum) {
+    window.ethereum.on("accountsChanged", () => {
+      setWalletIsConnected(true);
+    });
+  }
 
   useEffect(() => {
     async function getDonationPoolBalance() {
       setDonationPoolValue(
         await ribonContract?.methods.getDonationPoolBalance().call()
       );
+      setTotalDonatedValue(
+        await ribonContract?.methods.getTotalDonated().call()
+      );
     }
     getDonationPoolBalance();
-  }, [ribonContract]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  }, [deposit]);
 
   return (
     <S.Container>
@@ -52,12 +95,12 @@ export default function PromoterPage(): JSX.Element {
         <S.InputContainer>
           <FormInput
             name="coin"
-            label={"USDc"}
+            label={"Amount"}
             type={"text"}
             value={donationValue}
             setValue={setDonationValue}
           />
-          {true ? (
+          {account ? (
             <Button
               text="Donate"
               leftIcon={HeartIcon}
@@ -69,7 +112,7 @@ export default function PromoterPage(): JSX.Element {
               backgroundColor="white"
               textColor="black"
               borderColor="red"
-              onClick={() => null}
+              onClick={() => connectWallet()}
             />
           )}
         </S.InputContainer>
@@ -79,11 +122,25 @@ export default function PromoterPage(): JSX.Element {
             <h6>POOL BALANCE</h6>
           </S.InfoItem>
           <S.InfoItem>
-            <h3>100.000</h3>
+            <h3>{totalDonatedValue}</h3>
             <h6>TOTAL DONATED</h6>
           </S.InfoItem>
         </S.InfoContainer>
       </S.Card>
+      <Modal
+        visible={isErrorModalVisible}
+        onClose={onErrorModalClose}
+        type="error"
+        title="Transaction rejected"
+      />
+
+      <Modal
+        visible={isWaitingForConfirmation}
+        onClose={onWaitingForConfirmationModalClose}
+        icon={RibonIcon}
+        title="Waiting For Confirmation"
+        body="Confirm this transaction in your wallet"
+      />
     </S.Container>
   );
 }

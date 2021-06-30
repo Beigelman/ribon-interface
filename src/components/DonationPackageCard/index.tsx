@@ -28,17 +28,11 @@ function DonationPackageCard({
   sliderImages,
   cardTitle,
 }: Props): JSX.Element {
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-
   function donationButtonText() {
     if (onDonateButtonText) {
       return onDonateButtonText;
     }
     return "DONATE";
-  }
-
-  function showExclusiveModal() {
-    setIsModalVisible(true);
   }
 
   return (
