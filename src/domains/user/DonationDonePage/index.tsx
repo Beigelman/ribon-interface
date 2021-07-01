@@ -28,8 +28,7 @@ function DonationDonePage(): JSX.Element {
             backgroundColor={item.colorCode}
             circleImage={item.ngo.impactCardImage}
             impactText={item.impactDescription}
-            ribons={100}
-            impactDays={2}
+            impactDays={item.impactDays}
             nonProfitWallet={item.wallet}
             key={item.wallet}
           />

@@ -11,7 +11,6 @@ export interface Props {
   logo: string;
   circleImage: string;
   impactText: string;
-  ribons: number;
   impactDays: number;
   nonProfitWallet: string;
 }
@@ -22,24 +21,23 @@ export default function UserImpactListItem({
   logo,
   circleImage,
   impactText,
-  ribons,
   impactDays,
   nonProfitWallet,
 }: Props): JSX.Element {
-  const [isLoading, setIsLoading] = useState(false);
-  const [totalDonated, setTotalDonated] = useState(0);
+  const [totalDonated, setTotalDonated] = useState<number>(0);
   const { ribonContract } = useContract();
   const { account } = useAccount();
 
   const getImpact = useCallback(async () => {
-    setIsLoading(true);
-    setTotalDonated(
-      await ribonContract?.methods
+    try {
+      const total = await ribonContract?.methods
         .getUserImpactByNonProfit(account, nonProfitWallet)
-        .call()
-    );
-    setIsLoading(false);
-  }, []);
+        .call();
+      setTotalDonated(total);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [account, ribonContract]);
 
   useEffect(() => {
     getImpact();
@@ -47,19 +45,15 @@ export default function UserImpactListItem({
 
   return (
     <S.Container>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <Regular
-          backgroundColor={backgroundColor}
-          circleImage={circleImage}
-          name={name}
-          logo={logo}
-          progress={100}
-          ribons={ribons}
-          impactText={impactDays * totalDonated + " " + impactText}
-        />
-      )}
+      <Regular
+        backgroundColor={backgroundColor}
+        circleImage={circleImage}
+        name={name}
+        logo={logo}
+        progress={100}
+        ribons={totalDonated}
+        impactText={impactDays * totalDonated + " " + impactText}
+      />
     </S.Container>
   );
 }
