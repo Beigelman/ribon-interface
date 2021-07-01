@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     width: 100%;
     padding: 20px 16px;
     box-shadow: 0px 2px 4px rgba(24, 86, 105, 0.15);
-    z-index: 3;
+    z-index: 4;
 
     @media (min-width: ${theme.breakpoints.pad}) {
       padding: 0 16px;

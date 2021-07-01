@@ -16,6 +16,7 @@ export const NgoLogo = styled.img`
   display: block;
   margin: 0 auto;
   margin-top: -48px;
+  object-fit: contain;
 `;
 
 export const DesktopLogoContainer = styled.div`

@@ -7,6 +7,7 @@ import FooterNavigationButtons from "../../../../components/FooterNavigationButt
 import ImageWithLogo from "../../../../components/ImageWithLogo";
 import DonationInProgress from "../../../../components/DonationInProgress";
 import Modal from "../../../../components/Modal";
+import Button from "../../../../components/Button";
 import theme from "../../../../styles/theme";
 
 export interface Props {
@@ -59,26 +60,28 @@ function WillDonateContent({ donationPackage }: Props): JSX.Element {
       <S.BodyContainer>
         <S.ImageNoMarginContainer>
           <ImageWithLogo
-            image={ngo.willDonateImage}
+            image={ngo.cardBackgroundImage}
             imageAlt={`${ngo.name}BgImage`}
             logoAlt={`${ngo.name}Logo`}
             logoImage={ngo.logoUrl}
           />
         </S.ImageNoMarginContainer>
 
-        <S.DesktopImageContainer>
-          <S.NgoBackgroundImage
-            src={donationPackage.ngo.willDonateImage}
-            alt={`${donationPackage.ngo.name}BgImage`}
-          />
-        </S.DesktopImageContainer>
-
         <S.Section>
           <NgoLogoWithName donationPackage={donationPackage} />
           <S.ImpactDescription>
-            {donationPackage.impactDescription}
+            {`Your donation will help with ${donationPackage.impactDays} ${donationPackage.impactDescription} for one person`}
           </S.ImpactDescription>
           <S.HrSponsor />
+          <S.NonProfitInfo>
+            <S.NonProfitText>{donationPackage.ngo.description}</S.NonProfitText>
+            <Button
+              onClick={() => {
+                window.open(donationPackage.ngo.link);
+              }}
+              text="Learn more"
+            />
+          </S.NonProfitInfo>
         </S.Section>
       </S.BodyContainer>
       <Modal

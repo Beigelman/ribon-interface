@@ -24,5 +24,20 @@ export const HrSponsor = styled.hr`
     width: 100%;
     border: 1px solid ${theme.colors.lightGray};
     margin: 0;
+    margin-bottom: 32px;
+  `}
+`;
+
+export const NonProfitInfo = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+  `}
+`;
+
+export const NonProfitText = styled.p`
+  ${({ theme }) => css`
+    display: flex;
+    margin-bottom: 20px;
   `}
 `;

@@ -18,6 +18,7 @@ export type Props = {
   ngoLink: string;
   exclusiveForSubscriber: boolean;
   cardTitle: string;
+  impactDays: number;
 };
 
 function DonationPackageCard({
@@ -27,6 +28,7 @@ function DonationPackageCard({
   mainNgoImage,
   sliderImages,
   cardTitle,
+  impactDays,
 }: Props): JSX.Element {
   function donationButtonText() {
     if (onDonateButtonText) {
@@ -45,7 +47,7 @@ function DonationPackageCard({
       <S.Info>
         <S.DonateSection>
           <S.TitleContainer>
-            <S.Title>{cardTitle}</S.Title>
+            <S.Title>{`Donate ${impactDays} ${cardTitle}`}</S.Title>
           </S.TitleContainer>
 
           <S.ButtonContainer>

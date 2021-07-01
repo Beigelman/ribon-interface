@@ -36,7 +36,7 @@ function ImpactSection({
             <S.ImpactContainer>
               <CircleProgress image={image} value={value} />
               <div>
-                <S.ImpactText>{`${impactDays} ${impactDescription}`}</S.ImpactText>
+                <S.ImpactText>{`You just donated ${impactDays} ${impactDescription} for one person, keed donating and make a difference in the world.`}</S.ImpactText>
                 {children}
               </div>
             </S.ImpactContainer>

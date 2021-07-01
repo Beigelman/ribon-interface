@@ -16,6 +16,7 @@ import useNavigation from "../../../hooks/useNavigation";
 import SocialShare from "../../../components/SocialShare";
 import InstagramShareParams from "../../../types/InstagramShareParams";
 import DonationPackages from "../../../mock/donationPackages";
+import IntegrationNavbar from "../IntegrationNavbar";
 
 type LocationState = {
   donationPackage: DonationPackage;
@@ -65,11 +66,11 @@ function DonationConfirmPage(): JSX.Element {
   return (
     <>
       <S.Container>
+        <IntegrationNavbar />
         <DonationLayout
           headerProps={{
             color: theme.colors.ribonBlue,
             onClose: () => {},
-            hide: true,
           }}
           currentStep={3}
           desktopSidebarProps={{
@@ -96,7 +97,7 @@ function DonationConfirmPage(): JSX.Element {
 
               <S.ImpactContainer>
                 <ImpactSection
-                  image={donationPackage.ngo.donationDoneImage}
+                  image={donationPackage.ngo.impactCardImage}
                   impactPercentage={100}
                   impactDescription={donationPackage.impactDescription}
                   impactDays={donationPackage.impactDays}

@@ -4,16 +4,15 @@ export default interface Ngo {
   impactIconBackgroundColor: string;
   impactDescription: string;
   cause: string;
+  description: string;
   whiteLogoUrl: string;
   logoUrl: string;
-  backgroundImageUrl: string;
+  impactCardImage: string;
   colorCode: string;
-  willDonateImageUrl: string;
   link: string;
   sliderImages: Array<Record<any, string>>;
   cardBackgroundImage: string;
   willDonateImage: string;
-  donationDoneImage: string;
   ribonsAmountToOneImpactUnit: number;
   activated?: boolean;
   donationImpactMessage?: string;

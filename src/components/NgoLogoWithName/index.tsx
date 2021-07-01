@@ -14,9 +14,6 @@ function NgoLogoWithName({ donationPackage }: Props): JSX.Element {
         src={donationPackage.ngo.logoUrl}
         alt={`${donationPackage.ngo.name}Logo`}
       />
-      <S.NgoName color={theme.colors.ribonBlack}>
-        {donationPackage.ngo.name}
-      </S.NgoName>
     </S.DesktopLogoContainer>
   );
 }

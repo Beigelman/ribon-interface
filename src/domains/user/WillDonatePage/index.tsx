@@ -7,6 +7,8 @@ import DonationLayout from "../../../layouts/DonationLayout";
 import useNavigation from "../../../hooks/useNavigation";
 import integrationApi from "../../../services/api/integrationApi";
 import useAccount from "../../../hooks/useAccount";
+import theme from "../../../styles/theme";
+import IntegrationNavbar from "../IntegrationNavbar";
 
 type Params = {
   id: string;
@@ -15,7 +17,7 @@ type Params = {
 function WillDonatePage(): JSX.Element {
   const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
   const { id: donationPackageId } = useParams<Params>();
-  const { navigateTo } = useNavigation();
+  const { navigateTo, navigateBack } = useNavigation();
   const { account } = useAccount();
 
   const onErrorModalClose = () => {
@@ -38,17 +40,19 @@ function WillDonatePage(): JSX.Element {
 
   return (
     <>
+      <IntegrationNavbar />
       <DonationLayout
         headerProps={{
-          color: DonationPackages[parseInt(donationPackageId)].colorCode,
-          onClose: () => null,
+          color: theme.colors.ribonBlue,
+          onClose: () => navigateBack(),
+          hide: true,
         }}
         desktopSidebarProps={{
           image: DonationPackages[0].ngo.willDonateImage,
         }}
         footerButtonProps={{
           onPrimaryButtonClick: () => donate(),
-          onSecondaryButtonClick: () => null,
+          onSecondaryButtonClick: () => navigateBack(),
           primaryButtonText: "Donate!",
           secondaryButtonText: "Cancel",
         }}

@@ -19,6 +19,7 @@ export const UserImage = styled(Image)`
 export const LogoImage = styled(Image)`
   margin-left: -30px;
   z-index: 1;
+  object-fit: contain;
 `;
 
 export const HeartImage = styled.img`

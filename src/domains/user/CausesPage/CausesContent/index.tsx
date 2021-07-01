@@ -65,6 +65,7 @@ function CausesContent({
           ngoLink={donationPackage.ngo.link}
           exclusiveForSubscriber={donationPackage.exclusiveForSubscriber}
           cardTitle={donationPackage?.impactDescription}
+          impactDays={donationPackage.impactDays}
         />
         <S.NonProfitContainer>
           <S.NonProfitLogo src={donationPackage.ngo.logoUrl} />
