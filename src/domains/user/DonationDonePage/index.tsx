@@ -52,10 +52,7 @@ function DonationDonePage(): JSX.Element {
           <S.DividerWithText>
             <span>-</span>
           </S.DividerWithText>
-          <S.Title>
-            Discover the app and keep donating for free to this and others
-            causes{" "}
-          </S.Title>
+          <S.Title>Increase your impact and enable others to donate</S.Title>
           <S.DesktopButtonContainer>
             <Button
               leftIcon={Heart}

@@ -133,7 +133,6 @@ export const Section = styled.div`
       flex-direction: column;
       border-radius: 16px;
       margin-left: 24px;
-      height: 550px;
       margin-top: -100px;
       padding: 0 48px;
     }
