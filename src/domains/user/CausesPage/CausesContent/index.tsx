@@ -66,6 +66,10 @@ function CausesContent({
           exclusiveForSubscriber={donationPackage.exclusiveForSubscriber}
           cardTitle={donationPackage?.impactDescription}
         />
+        <S.NonProfitContainer>
+          <S.NonProfitLogo src={donationPackage.ngo.logoUrl} />
+          <p>{donationPackage.shortDescription}</p>
+        </S.NonProfitContainer>
       </S.CardContainer>
     ));
   }

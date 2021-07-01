@@ -6,7 +6,6 @@ export default interface DonationPackage {
   colorCode: string;
   impactDays: number;
   impactDescription: string;
-  longDescription: string;
   ngo: Ngo;
   ngoId: number;
   positionOrder: number;

@@ -16,7 +16,7 @@ function CausesTitle({ canDonate = true }: Props): JSX.Element {
   }
 
   function renderWelcomeDescription() {
-    return "Que tal ajudar pessoas com uma doação gratuita?";
+    return "How about helping people with a free donation?";
   }
 
   if (canDonate) {
@@ -29,8 +29,8 @@ function CausesTitle({ canDonate = true }: Props): JSX.Element {
 
   return (
     <S.Title>
-      Continue doando de graça se tornando uma{" "}
-      <S.TitleBlue onClick={goToOnBoarding}>doadora Ribon</S.TitleBlue>
+      Keep donating for free becoming a{" "}
+      <S.TitleBlue onClick={goToOnBoarding}>Ribon donor</S.TitleBlue>
     </S.Title>
   );
 }
