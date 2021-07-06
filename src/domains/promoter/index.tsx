@@ -29,7 +29,7 @@ export default function PromoterPage(): JSX.Element {
 
   const { ribonContract, donationTokenContract } = useContract();
 
-  const RIBON_CONTRACT_ADDRESS = "0xE840fEe2D7f1cff4B843F0E57105542eE29D5e73";
+  const RIBON_CONTRACT_ADDRESS = "0xbdd84418006C7C0C7aF0f57fdFDa55F7e6827a9C";
 
   const onErrorModalClose = () => {
     setIsErrorModalVisible(false);

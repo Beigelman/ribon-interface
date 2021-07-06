@@ -22,15 +22,18 @@ export default function useContract() {
     );
     const id = await web3.eth.net.getId();
     const deployedRibonNetwork = Ribon.networks[id];
-    const deployedDonationTokenNetwork = DonationToken.networks[id];
+    const deployedDonationTokenNetwork = 80001;
 
     setRibonContract(
-      new web3.eth.Contract(Ribon.abi, deployedRibonNetwork.address)
+      new web3.eth.Contract(
+        Ribon.abi,
+        "0xbdd84418006C7C0C7aF0f57fdFDa55F7e6827a9C"
+      )
     );
     setDonationTokenContract(
       new web3.eth.Contract(
         DonationToken.abi,
-        deployedDonationTokenNetwork.address
+        "0x56816571CBC82aa4Ee84584291c353bC469C9f13"
       )
     );
   }, []);
