@@ -14,7 +14,7 @@ It is possible to become a promoter and send tokens to pull donations and an int
 
 #### Network
 
-Is configured to run on mumbai (polygon/matic testnet). It is possible to configure to run on local blockchain.
+Is configured to run on mumbai (polygon/matic testnet). It is possible to configure to run on local testnet.
 
 #### Promoters
 
