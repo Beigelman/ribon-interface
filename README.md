@@ -1,11 +1,11 @@
 # Ribon interface
 
-Website: [ribon.io](https://ribon.io/en)
-Interface: [ribon-dapp.web.app](https://ribon-dapp.web.app)
-Twitter: [@RibonDAO](https://twitter.com/RibonDAO)
-Email: contacto@ribon.io
-Discord: [Ribon](https://discord.gg/2uXh3rxTns)
-Off-chain app: [app.ribon.io](https://ribon.io/en/)
+- Website: [ribon.io](https://ribon.io/en)
+- Interface: [ribon-dapp.web.app](https://ribon-dapp.web.app)
+- Twitter: [@RibonDAO](https://twitter.com/RibonDAO)
+- Email: contacto@ribon.io
+- Discord: [Ribon](https://discord.gg/2uXh3rxTns)
+- Off-chain app: [app.ribon.io](https://ribon.io/en/)
 
 ### What's in this interface?
 
@@ -22,13 +22,13 @@ To access the promoters interface you can go to [promoters route /promoters](htt
 
 #### Free donors
 
-To access the promoters interface you can go to [promoters route /users/welcome](hhttps://ribon-dapp.web.app/users/welcome)
+To access the promoters interface you can go to [promoters route /users/welcome](https://ribon-dapp.web.app/users/welcome)
 
 #### Next steps
 
 Create interface for integrations, integration council and non profits.
 
-### How to run
+### Getting Started
 
 Runs the app in the development mode.
 
