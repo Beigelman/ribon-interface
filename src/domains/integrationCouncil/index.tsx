@@ -12,7 +12,7 @@ export default function PromoterPage(): JSX.Element {
   const { ribonContract } = useContract();
   const { account } = useAccount();
 
-  const INTEGRATION_ADDRESS = "0xB6221a7b81AC2b706D3bd40A7Bb12482D05C5544";
+  const INTEGRATION_ADDRESS = "0xD6D7CA65a8f20C26Eeaef98E5CFB55Fa5085Bf20";
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,7 +33,7 @@ export default function PromoterPage(): JSX.Element {
   function sendToIntegration() {
     setIsLoading(true);
     ribonContract?.methods
-      .allowIntegrationDistribute(INTEGRATION_ADDRESS, 100)
+      .allowIntegrationDistribute(INTEGRATION_ADDRESS, 1000)
       .send({ from: account })
       .then(() => {
         setIsLoading(false);

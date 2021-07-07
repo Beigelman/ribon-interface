@@ -8,7 +8,7 @@ const integrationApi = {
     amount: number
   ): Promise<AxiosResponse<any>> => {
     console.log(nonProfit, user, amount);
-    return api.post(`/`, {
+    return api.post(`/donationThroughIntegration`, {
       nonProfit: nonProfit,
       user: user,
       amount: amount,

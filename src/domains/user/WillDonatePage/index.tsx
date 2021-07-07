@@ -29,7 +29,7 @@ function WillDonatePage(): JSX.Element {
       const { data } = await integrationApi.donateThoughtIntegration(
         DonationPackages[parseInt(donationPackageId)].wallet,
         account,
-        1
+        100
       );
       console.log(data);
       navigateTo("/user/donation-confirm/" + donationPackageId);
