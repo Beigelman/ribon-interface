@@ -1,8 +1,8 @@
 import Axios from "axios";
 
-const RIBON_API = "https://us-central1-ribon-dapp.cloudfunctions.net";
+const RIBON_API = "https://us-central1-ribon-dapp.cloudfunctions.net/api";
 
-export const baseURL = process.env.REACT_APP_RIBON_API || RIBON_API;
+export const baseURL = RIBON_API;
 
 const api = Axios.create({
   baseURL,

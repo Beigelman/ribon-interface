@@ -41,7 +41,7 @@ function Routes(): JSX.Element {
           <UserDonationDone />
         </Route>
 
-        <Redirect to="/" />
+        <Redirect to="/user/welcome" />
       </Switch>
     </BrowserRouter>
   );

@@ -20,9 +20,6 @@ export default function useContract() {
     const web3 = new Web3(
       window.web3.currentProvider || "http://localhost:8545"
     );
-    const id = await web3.eth.net.getId();
-    const deployedRibonNetwork = Ribon.networks[id];
-    const deployedDonationTokenNetwork = 80001;
 
     setRibonContract(
       new web3.eth.Contract(
